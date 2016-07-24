@@ -11,7 +11,10 @@
     <div class="col-lg-6 well">
       <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
       <p><%= recipe.summary %></p>
-      <p><span class='quiet'><small><%= time_ago_in_words(recipe.created_at) %> ago</small></span></p>
+      <p>
+        <span class='quiet'><small><%= time_ago_in_words(recipe.created_at) %> ago</small></span>
+      </p>
+      <%= render 'shared/likes_dislikes', recipe: recipe %>
     </div>
     <div class="col-md-4">
       <%= image_tag(recipe.picture.url, size: "250x150", class: "gravatar") if recipe.picture? %>
